@@ -1,0 +1,13 @@
+.item-container {
+  display: flex;
+  align-items: center;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.complete_button {
+  color: #ff69b4;
+  border: 1px solid #ff69b4;
+}
