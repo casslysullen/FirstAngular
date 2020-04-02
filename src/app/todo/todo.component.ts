@@ -10,7 +10,7 @@ export class TodoComponent implements OnInit {
     todo: Todo[] = [
         {
             task: 'fold clothes',
-            completed: true
+            completed: false
         },
         {
             task: 'put clothes in dresser',
@@ -18,7 +18,7 @@ export class TodoComponent implements OnInit {
         },
         {
             task: 'relax',
-            completed: true
+            completed: false
         },
         {
             task: 'try to pet cat',
@@ -30,13 +30,32 @@ export class TodoComponent implements OnInit {
         },
         {
             task: 'be awesome',
-            completed: true
+            completed: false
         }
     ];
 
-    constructor() { }
+    newTodo = '';
+
+    addTask(newTodo) {
+        console.log("newItem");
+        this.todo.push({
+            task: newTodo,
+            completed: false
+
+        });
+        this.newTodo = '';
+    }
+
+    removeTask(item) {
+        this.todo = this.todo.filter(t => t.task !== item.task);
+    }
+
+    completeTask(itemCompleted) {
+        itemCompleted.completed = !itemCompleted.completed;
+    }
 
     ngOnInit(): void {
 
     }
 }
+

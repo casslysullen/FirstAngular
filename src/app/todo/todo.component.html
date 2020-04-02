@@ -1,22 +1,22 @@
 <main>
   <section>
     <h1>TODO List</h1>
-    <p>A place to store your todos</p>
+    <p>A place to store your todo's</p>
     <form action="">
       <input type="text" name="filter" placeholder="Filter your To-do's">
     </form>
     <ol>
       <li *ngFor="let item of todo; index as i">
         <div class="item-container">
-          <button *ngIf="!item.completed" class="complete_button"> Complete </button>
+          <button *ngIf="!item.completed" (click)="completeTask(item)" class="complete_button"> Complete </button>
           <p [ngClass]="{completed: item.completed}">{{item.task}}</p>
-          <button>X</button>
+          <button (click)="removeTask(item)">X</button>
         </div>
       </li>
     </ol>
     <form action="">
-      <input type="text" name="todo" placeholder="Add Your to-do">
-      <button class="add">Add</button>
+      <input type="text" #newTodo name="todo" placeholder="Add Your to-do">
+      <button type="submit" (click)="addTask(newTodo)" class="add">Add</button>
     </form>
   </section>
 </main>
