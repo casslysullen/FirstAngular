@@ -1,0 +1,4 @@
+<h1>{{userTyping}}</h1>
+<input [(ngModel)]="userTyping" type="text" placeholder="Practice ngModel">
+<h1 *ngIf="userTyping !== ''" [ngClass]="{'showBackground-color': userTyping !== ''}">{{userTyping}}</h1>
+<h2>{{birthday| date}}</h2>

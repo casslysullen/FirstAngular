@@ -34,16 +34,19 @@ export class TodoComponent implements OnInit {
         }
     ];
 
-    newTodo = '';
+    newTodo: Todo[] = [{
+        task: '',
+        completed: false
+    }]
 
-    addTask(newTodo) {
-        console.log("newItem");
-        this.todo.push({
-            task: newTodo,
+
+    addTask(item) {
+        var newTodo = {
+            task: item,
             completed: false
+        };
 
-        });
-        this.newTodo = '';
+        this.todo.push(newTodo);
     }
 
     removeTask(item) {
